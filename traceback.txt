@@ -1,53 +1,13 @@
-Fri Feb  3 21:12:14 2023
-Windows-10-10.0.22621
-Ren'Py 8.0.3.22090809
- 
+﻿I'm sorry, but an uncaught exception occurred.
 
-Bootstrap to the start of init.init took 0.04s
-Early init took 0.00s
-Loader init took 0.02s
-Loading error handling took 0.04s
-Loading script took 0.66s
-Loading save slot metadata. took 0.00s
-Loading persistent took 0.00s
-Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Documents\\Projects\\Renpy\\RenPy\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
-Running init code took 0.06s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\emond\\AppData\\Roaming/RenPy/backups\\RootOfTheProblem':
-Dump and make backups. took 0.05s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc. took 0.01s
-DPI scale factor: 1.250000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.25s
-Cleaning stores took 0.00s
-Init translation took 0.02s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.02s
-Prepare screens took 0.04s
-Save pyanalysis. took 0.01s
-Save bytecode. took 0.03s
-Running _start took 0.00s
-Performance test:
-Interface start took 0.08s
+While loading <renpy.display.im.Image object ('click temp.png') at 0x0000000005cf5ee0>:
+  File "game/script.rpy", line 29, in script
+    call screen clickable_item
+  File "renpy/common/000statements.rpy", line 609, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+OSError: Couldn't find file 'click temp.png'.
 
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1200)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Intel(R) Iris(R) Xe Graphics'
-Version: b'4.6.0 - Build 31.0.101.3959'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1818, 1023) drawable=(1818, 1023)
-Could not open 'cache/shaders.txt':
-Maximum texture size: 4096x4096
+-- Full Traceback ------------------------------------------------------------
 
 Full traceback:
   File "game/script.rpy", line 29, in script
@@ -110,54 +70,7 @@ Full traceback:
     raise IOError("Couldn't find file '%s'." % name)
 OSError: Couldn't find file 'click temp.png'.
 
-While loading <renpy.display.im.Image object ('click temp.png') at 0x0000000005cf5ee0>:
-  File "game/script.rpy", line 29, in script
-    call screen clickable_item
-  File "renpy/common/000statements.rpy", line 609, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-OSError: Couldn't find file 'click temp.png'.
-Resetting cache.
-Bootstrap to the start of init.init took 50.44s
-Early init took 0.00s
-Loader init took 0.02s
-Loading error handling took 0.02s
-Loading script took 0.09s
-Loading save slot metadata. took 0.00s
-Loading persistent took 0.00s
-Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Documents\\Projects\\Renpy\\RenPy\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
-Running init code took 0.03s
-Loading analysis data took 0.01s
-Analyze and compile ATL took 0.00s
-Index archives took 0.00s
-Backing up script files to 'C:\\Users\\emond\\AppData\\Roaming/RenPy/backups\\RootOfTheProblem':
-Dump and make backups. took 0.04s
-Cleaning cache took 0.00s
-Making clean stores took 0.00s
-Initial gc. took 0.03s
-DPI scale factor: 1.250000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.28s
-Cleaning stores took 0.00s
-Init translation took 0.04s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.01s
-Save screen analysis took 0.02s
-Prepare screens took 0.04s
-Save pyanalysis. took 0.01s
-Save bytecode. took 0.02s
-Running _start took 0.00s
-Performance test:
-Interface start took 0.05s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1200)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel'"
-Renderer: b'Intel(R) Iris(R) Xe Graphics'
-Version: b'4.6.0 - Build 31.0.101.3959'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1818, 1022) drawable=(1818, 1022)
-Maximum texture size: 4096x4096
+Windows-10-10.0.22621 AMD64
+Ren'Py 8.0.3.22090809
+Root of the Problem 1.0
+Fri Feb  3 21:12:18 2023
