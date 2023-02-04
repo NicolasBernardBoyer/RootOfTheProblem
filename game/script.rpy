@@ -93,6 +93,16 @@ screen computer1:
         action [Play(file=renpy.random.choice(sound_clicks),channel="sound"), Show("application_paint")] #(!)
         mouse "computer"
 
+    imagebutton: #Web
+        xanchor 0.5
+        yanchor 0.5
+        xpos 0.56
+        ypos 0.45
+        idle icon_webpage
+        hover im.FactorScale(icon_webpage, factor_scale)
+        action [Play(file=renpy.random.choice(sound_clicks),channel="sound"), Show("application_web")] #(!)
+        mouse "computer"
+
     imagebutton: #Trash
         xanchor 0.5
         yanchor 0.5
@@ -111,8 +121,18 @@ screen application_paint:
         yanchor 0.5
         xpos 0.5
         ypos 0.5
-        idle "mspaint.png"
+        idle app_paint
         action Hide("application_paint") #(!)
+
+
+screen application_web:
+    imagebutton:
+        xanchor 0.5
+        yanchor 0.5
+        xpos 0.5
+        ypos 0.5
+        idle app_web
+        action Hide("application_web") #(!)
 
 
 #Test Application Window
@@ -143,6 +163,7 @@ label intro:
     unknown "Follow the roots and come find me."
 
     # Scene Infirmary
+    show vina smile at right
     v "Ah, you're awake"
     v "Tell me you haven't been here all night, you're going to get a crick in your neck."
     v "I bet you haven't eaten either."
@@ -170,6 +191,7 @@ label intro_choices:
         "How can I help?" if not is_chosen_intro2:
             jump intro_choice2
 
+    hide vina
     "Continue Here (!)"
     jump computer_screen1
     return
