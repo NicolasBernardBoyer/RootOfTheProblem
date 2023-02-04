@@ -8,6 +8,8 @@ define s = Character("ShadowEdge12", color="#6d176d")
 define s = Character("Superbug", color="#2e8838")
 define unknown = Character("???", color="#5195c0")
 
+# music
+define music_final_boss = "audio/music/FINAL BOSS THEME.mp3"
 
 # Image Effects
 define hover_effect = im.Flip("click temp.png", vertical=True)
@@ -92,7 +94,7 @@ label intro_choices:
             jump intro_choice2
 
     "Continue Here (!)"
-    jump point_and_click_playground
+    jump final_boss
     return
 
 label intro_choice1:
@@ -126,6 +128,11 @@ label main_room:
     jump point_and_click_playground
     return
 
+# Final Boss
+label final_boss:
+    play music music_final_boss
+    "Final Boss Time (!)"
+    return
 
 
 # Deprecated. Use as reference
