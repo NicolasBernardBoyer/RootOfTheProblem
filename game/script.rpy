@@ -37,26 +37,8 @@ init:
 
             return mc_name
 
+
 # Screens
-
-# Deprecated. For reference only
-screen clickable_items:
-    imagebutton:
-        xpos 0.5
-        ypos 0.5
-        idle "click temp.png"
-        hover tint_effect
-        action Jump("end")
-
-    imagebutton:
-        xanchor 0.5
-        yanchor 0.5
-        xpos 0.2
-        ypos 0.2
-        idle "click temp.png"
-        hover scale_effect
-        action Jump("end")
-
 # First Computer Screen
 screen computer1:
     $ factor_scale = 1.1
@@ -68,7 +50,7 @@ screen computer1:
         ypos 0.72
         idle "computer trash.png"
         hover im.FactorScale("computer trash.png", factor_scale)
-        action Jump("end") #(!)
+        action Jump("final_boss") #(!)
     
     imagebutton:
         xanchor 0.5
@@ -77,8 +59,18 @@ screen computer1:
         ypos 0.23
         idle "computer files.png"
         hover im.FactorScale("computer files.png", factor_scale)
-        action Jump("end") #(!)
-    
+        action Show("application") #(!)
+
+
+#Test Application Window
+screen application:
+    imagebutton:
+        xanchor 0.5
+        yanchor 0.5
+        xpos 0.5
+        ypos 0.5
+        idle "temp application.png"
+        action Jump("final_boss") #(!)
 
 
 label start:
