@@ -2,12 +2,11 @@
 
 # Characters
 define mc = DynamicCharacter("[mc_name]")
-define v = Character("Vina")
-define n = Character("Nor")
-define g = Character("Grandpa")
-define h = Character("Hal")
-define s = Character("Superbug")
-define unknown = Character("???")
+define v = Character("Vina", color="#5195c0")
+define n = Character("Nor", color="#9d471f")
+define s = Character("ShadowEdge12", color="#6d176d")
+define s = Character("Superbug", color="#2e8838")
+define unknown = Character("???", color="#5195c0")
 
 
 # Image Effects
@@ -98,7 +97,7 @@ label intro_choices:
 label intro_choice1:
 
     $ is_chosen_intro1 = True
-
+    $ renpy.fix_rollback()
     v "I really don't know. She came back yesterday while you were out checking the rabbit traps with Gramps and she just collapsed to the ground without warning."
     v "She started screaming incoherent things and fell asleep after calming down. She hasn't woken up since."
     v "If it wasn't for the fever, I'd think it was just a nervous breakdown."
@@ -110,6 +109,8 @@ label intro_choice1:
 label intro_choice2:
 
     $ is_chosen_intro2 = True
+    $ renpy.fix_rollback()
+
     v "There's an old town a few kilometers east from here."
     v "Grandpa found it and said it didn't look like it had been plundered."
     v "I need you to go there to see if you can find any supplies."
