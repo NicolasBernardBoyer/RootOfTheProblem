@@ -10,7 +10,11 @@ define unknown = Character("???", color="#5195c0")
 
 # music
 define music_final_boss = "audio/music/FINAL BOSS THEME.mp3"
-define sound_button_click = "audio/SFX/Button Slow.wav"
+
+define sound_click_slow = "audio/SFX/Button Slow.mp3"
+define sound_click_normal = "audio/SFX/Button Normal.mp3"
+define sound_click_fast = "audio/SFX/Button Fast.mp3"
+define sound_clicks = [sound_click_slow, sound_click_normal, sound_click_fast]
 
 #Images
 define mouse_cursor = "computer trash.png"
@@ -23,7 +27,22 @@ define tint_effect = im.MatrixColor(
     im.matrix.tint(1, 0.5, 1)
 )
 
+# Images
+define icon_folder = "computer files.png"
+define icon_checker = "file pic.png"
+define icon_mug = "mug pic.png"
+define icon_mug_egg = "mug easter egg.png"
+define icon_paint = "mspaint icon.png"
+define icon_text = "txt icon.png"
+define icon_solitaire = "solitare icon.png"
+define icon_trash = "computer trash.png"
+define icon_virus = "virus icon.png"
+define icon_webpage = "webpage icon.png"
 
+define app_folder = "file explorer.png"
+define app_paint = "mspaint.png"
+define app_text = "txt page.png"
+define app_web = "webpage.png"
 
 # Python Code
 init:
@@ -44,7 +63,7 @@ init:
             return mc_name
 
         def play_click_sound():
-            return "SFX/Button Fast.wav"
+            Play(file=renpy.random.choice(sound_clicks),channel="sound")
             #click = randint(1, 3);
             #if click == 1 return "SFX/Button Fast.wav"
 
@@ -54,25 +73,46 @@ init:
 screen computer1:
     $ factor_scale = 1.1
 
-    imagebutton:
+    imagebutton: # Folder
         xanchor 0.5
         yanchor 0.5
-        xpos 0.33
+        xpos 0.32
         ypos 0.23
-        idle "computer files.png"
-        hover im.FactorScale("computer files.png", factor_scale)
-        action Show("application") #(!)
+        idle icon_folder
+        hover im.FactorScale(icon_folder, factor_scale)
+        action [Play(file=renpy.random.choice(sound_clicks),channel="sound"), Show("application")] #(!)
         mouse "computer"
 
-    imagebutton:
+    imagebutton: #Paint
+        xanchor 0.5
+        yanchor 0.5
+        xpos 0.41
+        ypos 0.23
+        idle icon_paint
+        hover im.FactorScale(icon_paint, factor_scale)
+        action [Play(file=renpy.random.choice(sound_clicks),channel="sound"), Show("application_paint")] #(!)
+        mouse "computer"
+
+    imagebutton: #Trash
         xanchor 0.5
         yanchor 0.5
         xpos 0.65
         ypos 0.72
         idle "computer trash.png"
         hover im.FactorScale("computer trash.png", factor_scale)
-        action [Play(file=sound_button_click,channel="sound")] #(!)
+        action [Play(file=renpy.random.choice(sound_clicks),channel="sound")] #(!)
         mouse "computer"
+
+
+#Paint Application
+screen application_paint:
+    imagebutton:
+        xanchor 0.5
+        yanchor 0.5
+        xpos 0.5
+        ypos 0.5
+        idle "mspaint.png"
+        action Hide("application_paint") #(!)
 
 
 #Test Application Window
@@ -82,8 +122,8 @@ screen application:
         yanchor 0.5
         xpos 0.5
         ypos 0.5
-        idle "temp application.png"
-        action Jump("final_boss") #(!)
+        idle "webpage.png"
+        action Hide("application") #(!)
 
 
 
