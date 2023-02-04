@@ -5,7 +5,7 @@
 ## may want to uncomment them when appropriate.
 
 ## Mouse
-define config.mouse = { 'computer' : [('images/computer trash.png', 0, 0)] }
+define config.mouse = { 'computer' : [('images/mouse.png', 0, 0)] }
 
 
 ## Basics ######################################################################

@@ -10,6 +10,7 @@ define unknown = Character("???", color="#5195c0")
 
 # music
 define music_final_boss = "audio/music/FINAL BOSS THEME.mp3"
+define sound_button_click = "audio/SFX/Button Slow.wav"
 
 #Images
 define mouse_cursor = "computer trash.png"
@@ -42,6 +43,11 @@ init:
 
             return mc_name
 
+        def play_click_sound():
+            return "SFX/Button Fast.wav"
+            #click = randint(1, 3);
+            #if click == 1 return "SFX/Button Fast.wav"
+
 
 # Screens
 # First Computer Screen
@@ -51,21 +57,21 @@ screen computer1:
     imagebutton:
         xanchor 0.5
         yanchor 0.5
-        xpos 0.65
-        ypos 0.72
-        idle "computer trash.png"
-        hover im.FactorScale("computer trash.png", factor_scale)
-        action Jump("final_boss") #(!)
-        mouse "computer"
-    
-    imagebutton:
-        xanchor 0.5
-        yanchor 0.5
         xpos 0.33
         ypos 0.23
         idle "computer files.png"
         hover im.FactorScale("computer files.png", factor_scale)
         action Show("application") #(!)
+        mouse "computer"
+
+    imagebutton:
+        xanchor 0.5
+        yanchor 0.5
+        xpos 0.65
+        ypos 0.72
+        idle "computer trash.png"
+        hover im.FactorScale("computer trash.png", factor_scale)
+        action [Play(file=sound_button_click,channel="sound")] #(!)
         mouse "computer"
 
 
@@ -162,6 +168,7 @@ label main_room:
 # Computer Screen 1
 label computer_screen1:
     scene bg computer1
+
     show computer_screen1:
         xanchor 0.5
         yanchor 0.5
