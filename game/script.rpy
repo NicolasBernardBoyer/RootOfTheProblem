@@ -38,6 +38,8 @@ init:
             return mc_name
 
 # Screens
+
+# Deprecated. For reference only
 screen clickable_items:
     imagebutton:
         xpos 0.5
@@ -54,6 +56,29 @@ screen clickable_items:
         idle "click temp.png"
         hover scale_effect
         action Jump("end")
+
+# First Computer Screen
+screen computer1:
+    $ factor_scale = 1.1
+
+    imagebutton:
+        xanchor 0.5
+        yanchor 0.5
+        xpos 0.65
+        ypos 0.72
+        idle "computer trash.png"
+        hover im.FactorScale("computer trash.png", factor_scale)
+        action Jump("end") #(!)
+    
+    imagebutton:
+        xanchor 0.5
+        yanchor 0.5
+        xpos 0.33
+        ypos 0.23
+        idle "computer files.png"
+        hover im.FactorScale("computer files.png", factor_scale)
+        action Jump("end") #(!)
+    
 
 
 label start:
@@ -94,7 +119,7 @@ label intro_choices:
             jump intro_choice2
 
     "Continue Here (!)"
-    jump final_boss
+    jump computer_screen1
     return
 
 label intro_choice1:
@@ -126,6 +151,18 @@ label intro_choice2:
 # Room with Characters (!)
 label main_room:
     jump point_and_click_playground
+    return
+
+# Computer Screen 1
+label computer_screen1:
+    scene bg computer1
+    show computer_screen1:
+        xanchor 0.5
+        yanchor 0.5
+        xalign 0.5
+        yalign 0.5
+
+    call screen computer1
     return
 
 # Final Boss
