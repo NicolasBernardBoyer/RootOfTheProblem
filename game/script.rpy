@@ -11,6 +11,9 @@ define unknown = Character("???", color="#5195c0")
 # music
 define music_final_boss = "audio/music/FINAL BOSS THEME.mp3"
 
+#Images
+define mouse_cursor = "computer trash.png"
+
 # Image Effects
 define hover_effect = im.Flip("click temp.png", vertical=True)
 define scale_effect = im.FactorScale("click temp.png", 1.2)
@@ -42,6 +45,7 @@ init:
 # First Computer Screen
 screen computer1:
     $ factor_scale = 1.1
+    $ config.mouse_displayable = MouseDisplayable(mouse_cursor, 0, 0)
 
     imagebutton:
         xanchor 0.5
@@ -72,6 +76,13 @@ screen application:
         idle "temp application.png"
         action Jump("final_boss") #(!)
 
+
+
+# __ _             _   
+#/ _\ |_ __ _ _ __| |_ 
+#\ \| __/ _` | '__| __|
+#_\ \ || (_| | |  | |_ 
+#\__/\__\__,_|_|   \__|
 
 label start:
     $ mc_name = name_input()
