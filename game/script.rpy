@@ -3,20 +3,33 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define e = Character("Eileen")
+# define e = Character("Eileen")
 
-screen clickable_item:
+# Image Effects
+define hover_effect = im.Flip("click temp.png", vertical=True)
+define scale_effect = im.FactorScale("click temp.png", 1.2)
+define tint_effect = im.MatrixColor(
+    "click temp.png",
+    im.matrix.tint(1, 0.5, 1)
+)
+
+# Screens
+screen clickable_items:
     imagebutton:
         xpos 0.5
         ypos 0.5
         idle "click temp.png"
+        hover tint_effect
         action Jump("end")
 
     imagebutton:
+        xanchor 0.5
+        yanchor 0.5
         xpos 0.2
         ypos 0.2
         idle "click temp.png"
-        hover "click temp.png"
+        hover scale_effect
+        action Jump("end")
 
 # The game starts here.
 
@@ -27,7 +40,7 @@ label start:
     # images directory to show it.
 
     scene bg temp
-    call screen clickable_item
+    call screen clickable_items
 
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images
@@ -47,5 +60,7 @@ label start:
 # End
 label end:
     
-    e "Next Step"
+    "Next Step"
+
+    jump start
     return
