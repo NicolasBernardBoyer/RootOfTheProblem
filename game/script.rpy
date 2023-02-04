@@ -92,6 +92,7 @@ label intro_choices:
             jump intro_choice2
 
     "Continue Here (!)"
+    jump point_and_click_playground
     return
 
 label intro_choice1:
@@ -120,6 +121,11 @@ label intro_choice2:
     return
 
 
+# Room with Characters (!)
+label main_room:
+    jump point_and_click_playground
+    return
+
 
 
 # Deprecated. Use as reference
@@ -132,7 +138,7 @@ label point_and_click_playground:
 
 
 
-# End
+# Deprecated. Use as reference
 label point_and_click_playground_end:
     
     mc "Next Step"
