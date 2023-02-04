@@ -4,6 +4,9 @@
 ## them. Lines beginning with a single '#' mark are commented-out code, and you
 ## may want to uncomment them when appropriate.
 
+## Mouse
+define config.mouse = { 'computer' : [('images/computer trash.png', 0, 0)] }
+
 
 ## Basics ######################################################################
 

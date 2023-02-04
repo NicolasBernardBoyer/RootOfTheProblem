@@ -22,6 +22,8 @@ define tint_effect = im.MatrixColor(
     im.matrix.tint(1, 0.5, 1)
 )
 
+
+
 # Python Code
 init:
     $ mc_name = "placeholder"
@@ -45,7 +47,6 @@ init:
 # First Computer Screen
 screen computer1:
     $ factor_scale = 1.1
-    $ config.mouse_displayable = MouseDisplayable(mouse_cursor, 0, 0)
 
     imagebutton:
         xanchor 0.5
@@ -55,6 +56,7 @@ screen computer1:
         idle "computer trash.png"
         hover im.FactorScale("computer trash.png", factor_scale)
         action Jump("final_boss") #(!)
+        mouse "computer"
     
     imagebutton:
         xanchor 0.5
@@ -64,6 +66,7 @@ screen computer1:
         idle "computer files.png"
         hover im.FactorScale("computer files.png", factor_scale)
         action Show("application") #(!)
+        mouse "computer"
 
 
 #Test Application Window
@@ -165,7 +168,8 @@ label computer_screen1:
         xalign 0.5
         yalign 0.5
 
-    call screen computer1
+
+    call screen computer1 
     return
 
 # Final Boss
