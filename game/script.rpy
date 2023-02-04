@@ -10,6 +10,7 @@ define unknown = Character("???", color="#5195c0")
 
 # music
 define music_final_boss = "audio/music/FINAL BOSS THEME.mp3"
+define music_character_creation = "audio/music/CHARACTER CREATION THEME.mp3"
 
 define sound_click_slow = "audio/SFX/Button Slow.mp3"
 define sound_click_normal = "audio/SFX/Button Normal.mp3"
@@ -80,7 +81,7 @@ screen computer1:
         ypos 0.23
         idle icon_folder
         hover im.FactorScale(icon_folder, factor_scale)
-        action [Play(file=renpy.random.choice(sound_clicks),channel="sound"), Show("application")] #(!)
+        action [Play(file=renpy.random.choice(sound_clicks),channel="sound"), ToggleScreen("application_folder")] #(!)
         mouse "computer"
 
     imagebutton: #Paint
@@ -90,17 +91,27 @@ screen computer1:
         ypos 0.23
         idle icon_paint
         hover im.FactorScale(icon_paint, factor_scale)
-        action [Play(file=renpy.random.choice(sound_clicks),channel="sound"), Show("application_paint")] #(!)
+        action [Play(file=renpy.random.choice(sound_clicks),channel="sound"), ToggleScreen("application_paint")] #(!)
+        mouse "computer"
+
+    imagebutton: #Paint
+        xanchor 0.5
+        yanchor 0.5
+        xpos 0.65
+        ypos 0.56
+        idle icon_solitaire
+        hover im.FactorScale(icon_solitaire, factor_scale)
+        action [Play(file=renpy.random.choice(sound_clicks),channel="sound")] #(!)
         mouse "computer"
 
     imagebutton: #Web
         xanchor 0.5
         yanchor 0.5
-        xpos 0.56
-        ypos 0.45
+        xpos 0.55
+        ypos 0.72
         idle icon_webpage
         hover im.FactorScale(icon_webpage, factor_scale)
-        action [Play(file=renpy.random.choice(sound_clicks),channel="sound"), Show("application_web")] #(!)
+        action [Play(file=renpy.random.choice(sound_clicks),channel="sound"), ToggleScreen("application_web")] #(!)
         mouse "computer"
 
     imagebutton: #Trash
@@ -108,42 +119,80 @@ screen computer1:
         yanchor 0.5
         xpos 0.65
         ypos 0.72
-        idle "computer trash.png"
-        hover im.FactorScale("computer trash.png", factor_scale)
-        action [Play(file=renpy.random.choice(sound_clicks),channel="sound")] #(!)
+        idle icon_trash
+        hover im.FactorScale(icon_trash, factor_scale)
+        action [Play(file=renpy.random.choice(sound_clicks),channel="sound"), ToggleScreen("application_trash")] #(!)
         mouse "computer"
 
+
+#File Explorer Application
+screen application_folder:
+    imagebutton:
+        xanchor 0.5
+        yanchor 0.5
+        xpos 0.42
+        ypos 0.51
+        idle app_folder
+        action Hide("application_folder") #(!)
 
 #Paint Application
 screen application_paint:
     imagebutton:
         xanchor 0.5
         yanchor 0.5
-        xpos 0.5
-        ypos 0.5
+        xpos 0.52
+        ypos 0.38
         idle app_paint
         action Hide("application_paint") #(!)
 
 
+#Web Application
 screen application_web:
     imagebutton:
         xanchor 0.5
         yanchor 0.5
-        xpos 0.5
-        ypos 0.5
+        xpos 0.42
+        ypos 0.57
         idle app_web
         action Hide("application_web") #(!)
+        mouse "computer"
 
 
-#Test Application Window
-screen application:
-    imagebutton:
+# Application Window
+screen application_trash:
+    imagebutton: #App
         xanchor 0.5
         yanchor 0.5
-        xpos 0.5
-        ypos 0.5
-        idle "webpage.png"
-        action Hide("application") #(!)
+        xpos 0.55
+        ypos 0.46
+        idle app_folder
+        action Hide("application_trash") #(!)
+
+    imagebutton: #Mug
+        xanchor 0.5
+        yanchor 0.5
+        xpos 0.51
+        ypos 0.41
+        idle im.FactorScale(icon_mug, 0.70)
+        hover im.FactorScale(icon_mug, 1)
+        action [Play(file=renpy.random.choice(sound_clicks),channel="sound"), ToggleScreen("screen_mug")] #(!)
+        mouse "computer"
+    
+    add im.FactorScale(icon_virus, 0.70) xpos 0.57 ypos 0.41 xanchor 0.5 yanchor 0.5
+    add im.FactorScale(icon_text, 0.70) xpos 0.63 ypos 0.41 xanchor 0.5 yanchor 0.5
+
+
+# Mug Screen
+screen screen_mug:
+    imagebutton: #Mug
+        xanchor 0.5
+        yanchor 0.5
+        xpos 0.48
+        ypos 0.48
+        idle icon_mug_egg
+        action Hide("screen_mug") #(!)
+        mouse "computer"
+
 
 
 
@@ -154,6 +203,7 @@ screen application:
 #\__/\__\__,_|_|   \__|
 
 label start:
+    play music music_character_creation fadeout 1
     $ mc_name = name_input()
     jump intro
     return
