@@ -2,6 +2,8 @@
 # Computer Screen 1
 define suspicious_email_read = False
 define bunny_email = False
+define official_report_read = False
+define redacted_report_read = False
 
 
 label computer_screen1:
@@ -42,9 +44,44 @@ label suspicious_email:
     call screen logout_hack_screen
     return
 
-label closing_screen:
-    "You can't logout yet! {p=1.5}{nw}"
+
+label official_report:
+    $ official_report_read = True
+
+    "Report on the G-GJ-23 Growth, Date: February 5th 2023{p=1.5}{nw}"
+    "Description: A 6ft tall growth was discovered 23 days ago. The species of the plant is unknown, but our tests show it has poisonous properties, causing hallucinations, a fever and death.{p=1.5}{nw}"
+    "Conclusions: This substance having no known antidote, it could be used as a bioweapon.{p=1.5}{nw}"
+
+    hide screen screen_official_report
     call screen logout_hack_screen
+    return
+
+label redacted_report:
+    $ redacted_report_read = True
+
+    "(REDACTED){p=1.5}{nw}"
+    se "Give me a second, I think I can recover the original file.{p=1.5}{nw}"
+    "Report of Dr Jekan on the sentient plant, Date: February 3rd 2023{p=1.5}{nw}"
+    "Description: Locals have found an unknown plant growing in a basement. I was unable to specify its species.{p=1.5}{nw}"
+    "As I was studying it, the undiscovered plant grew a vine that wrapped itself around me. I have never seen such a fast and localized growth in all my years of research.{p=1.5}{nw}"
+    "The plant was reacting to my presence. After several tests listed below, I determined that this plant is sentient and has human-level intelligence. It also seems to display a human-like emotional range.{p=1.5}{nw}"
+    "Conclusions: We must form good relations with this new intelligent species to ensure the continued peace.{p=1.5}{nw}"
+    
+    hide screen screen_redacted_report
+    call screen logout_hack_screen
+    return
+
+
+label closing_screen:
+
+    if not redacted_report_read:
+        "You can't logout yet! {p=1.5}{nw}"
+        call screen logout_hack_screen
+    else:
+        jump cave
+    
+    return
+
 
 
 # Python
@@ -106,7 +143,7 @@ screen computer1:
         ypos 0.56
         idle icon_solitaire
         hover im.FactorScale(icon_solitaire, factor_scale)
-        action [Play(file=renpy.random.choice(sound_clicks),channel="sound"), Jump("cave")] #(!)
+        action Play(file=renpy.random.choice(sound_clicks),channel="sound") #(!)
         mouse "computer"
 
     imagebutton: #Web
@@ -140,6 +177,28 @@ screen application_folder:
         idle app_folder
         action Hide("application_folder")
         mouse "computer"
+
+    imagebutton: #Official Report
+        xanchor 0.5
+        yanchor 0.5
+        xpos 0.38
+        ypos 0.46
+        idle im.FactorScale(icon_text, 0.60)
+        hover im.FactorScale(icon_text, 0.9)
+        action [Play(file=renpy.random.choice(sound_clicks),channel="sound"), Show("screen_official_report")]
+        mouse "computer"
+
+    imagebutton: #Dr Jekans Report
+        xanchor 0.5
+        yanchor 0.5
+        xpos 0.44
+        ypos 0.46
+        idle im.FactorScale(icon_text, 0.60)
+        hover im.FactorScale(icon_text, 0.9)
+        action [Play(file=renpy.random.choice(sound_clicks),channel="sound"), Show("screen_redacted_report")]
+        mouse "computer"
+
+    
 
 #Paint Application
 screen application_paint:
@@ -227,7 +286,7 @@ screen screen_close_email:
         xpos 0.48
         ypos 0.48
         idle app_report_redacted
-        action Jump("suspicious_email") #(!)
+        action Jump("suspicious_email")
         mouse "computer"
 
 # Bunny Email
@@ -238,7 +297,29 @@ screen screen_open_email:
         xpos 0.48
         ypos 0.48
         idle app_report
-        action Jump("bunny_email") #(!)
+        action Jump("bunny_email")
+        mouse "computer"
+
+# Offical Report
+screen screen_official_report:
+    imagebutton:
+        xanchor 0.5
+        yanchor 0.5
+        xpos 0.48
+        ypos 0.48
+        idle app_report
+        action Jump("official_report")
+        mouse "computer"
+
+# Redacted Report
+screen screen_redacted_report:
+    imagebutton:
+        xanchor 0.5
+        yanchor 0.5
+        xpos 0.48
+        ypos 0.48
+        idle app_report_redacted
+        action Jump("redacted_report")
         mouse "computer"
 
 
@@ -250,7 +331,7 @@ screen screen_mug:
         xpos 0.48
         ypos 0.48
         idle icon_mug_egg
-        action Hide("screen_mug") #(!)
+        action Hide("screen_mug")
         mouse "computer"
 
 # Virus Screen
