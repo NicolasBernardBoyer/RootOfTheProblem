@@ -22,8 +22,11 @@ label final_boss:
     show mothertree idle
 
     "{font=[pixel_font]}The Mother Tree blocks your path!{/font}"
+    play sound sound_boss_screech
     "{font=[pixel_font]}The Mother Tree lashes out with roots!{/font}"
     
+    play sound sound_boss_screech
+    queue sound sound_damage2
     show mothertree attack
     show slash
     pause 0.2
@@ -31,7 +34,7 @@ label final_boss:
     pause 0.25
     show mothertree idle
 
-    "{font=[pixel_font]}It's ineffective against Superbug!”{/font}"
+    "{font=[pixel_font]}It's ineffective against Superbug!{/font}"
 
     call screen rpg_battle
 
@@ -49,6 +52,8 @@ label attack:
     
     "{font=[pixel_font]}Superbug unloads a rain of bullets!{/font}"
     # (!) Attack
+    play sound sound_machine_gun
+    queue sound sound_damage1
     show superbug shoot
     show bullets
     pause 1.0
@@ -183,7 +188,7 @@ screen rpg_battle:
         text_font pixel_font
         text_size 40
         text_color '#ffffff'
-        action Jump("attack")
+        action [Play(file=sound_action_button,channel="sound"), Jump("attack")]
 
     textbutton "Talk" at button_animation:
         xanchor 0.5
@@ -192,7 +197,7 @@ screen rpg_battle:
         ypos 0.80
         text_font pixel_font
         text_color '#ffffff'
-        action Jump("talk_mothertree")
+        action [Play(file=sound_action_button,channel="sound"),Jump("talk_mothertree")]
 
     textbutton "Items" at button_animation:
         xanchor 0.5
@@ -201,7 +206,7 @@ screen rpg_battle:
         ypos 0.80
         text_font pixel_font
         text_color '#ffffff'
-        action Jump("fight_items")
+        action [Play(file=sound_action_button,channel="sound"),Jump("fight_items")]
 
     textbutton "Run!" at button_animation:
         xanchor 0.5
@@ -210,7 +215,7 @@ screen rpg_battle:
         ypos 0.80
         text_font pixel_font
         text_color '#ffffff'
-        action Jump("fight_run")
+        action [Play(file=sound_action_button,channel="sound"),Jump("fight_run")]
 
 
 # Animations
