@@ -54,10 +54,3 @@ transform left_to_right:
     xalign 0.0
     linear 2.0 xalign 1.0
     repeat
-
-transform button_animation():
-    linear renpy.random.randint(1, 3) / 10.0 rotate renpy.random.randint(2, 10)
-    pause 0.2
-    linear renpy.random.randint(1, 3) / 10.0 rotate renpy.random.randint(2, 10) * -1
-    pause 0.2
-    repeat
