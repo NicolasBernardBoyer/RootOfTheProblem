@@ -3,7 +3,6 @@ label back_home:
 
     scene infirmary
 
-    # (!)
     "I returned home after making my shocking discovery, eager to ask Vina for help."
   
     show vina neutral at right
@@ -46,9 +45,6 @@ label back_home:
     se "Do I really need to spell it out for you? The plants are fused with computers."
     se "If you wanna kill a computer, you're gonna need a bug."
     se "Give me an hour or something. I need to make something."
-
-    hide vina
-    hide edge
 
     "two hours later..."
 
