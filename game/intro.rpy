@@ -7,8 +7,8 @@ label intro:
     unknown "Follow the roots and come find me."
 
     # Scene Infirmary
-    scene hq
-    show vina neutral at right
+    scene infirmary
+    show vina smile at left
     v "You're finally awake."
     v "Please tell me you haven't been here all night. You're gonna get a crick in the neck. You probably haven't eaten either…"
     
