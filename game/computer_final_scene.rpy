@@ -1,7 +1,5 @@
 label computer_final_scene:
     # (!) Change Music
-    # (!)(!)(!) Hide all other screens too
-    hide screen computer1
     
     play music music_ambience2 fadeout 2
     scene boss computer
