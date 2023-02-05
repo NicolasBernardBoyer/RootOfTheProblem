@@ -1,7 +1,5 @@
 label computer_final_scene:
     # (!) Change Music
-    
-    play music music_ambience2 fadeout 2
     scene boss computer
     call screen screen_computer2
 

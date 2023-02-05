@@ -1,5 +1,5 @@
 label intro:
-    play music music_ambience fadeout 1 fadein 3
+    play music music_infirmary fadeout 1 fadein 3
 
     "There are bunnies hidden thoughout the game. Try to find them all!"
 

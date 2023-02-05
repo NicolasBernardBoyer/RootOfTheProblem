@@ -36,11 +36,20 @@ define music_character_creation = "audio/music/CHARACTER CREATION THEME.mp3"
 define music_final_boss = "audio/music/FINAL BOSS THEME.mp3"
 define music_good_ending = "audio/music/PACIFIST ENDING THEME.mp3"
 define music_attack_ending = "audio/music/GOOD ENDING MELODY.mp3"
+define music_infirmary = "audio/music/INFIRMARY + MAIN ROOM THEME.mp3"
+define music_computer = "audio/music/ABANDONED LAB THEME.mp3"
 
 define sound_click_slow = "audio/SFX/Button Slow.mp3"
 define sound_click_normal = "audio/SFX/Button Normal.mp3"
 define sound_click_fast = "audio/SFX/Button Fast.mp3"
 define sound_clicks = [sound_click_slow, sound_click_normal, sound_click_fast]
+
+define sound_action_button = "audio/SFX/RPG Fight/action button click.mp3"
+define sound_boss_screech = "audio/SFX/RPG Fight/boss screech.mp3"
+define sound_damage1 = "audio/SFX/RPG Fight/damage sound 1.mp3"
+define sound_damage2 = "audio/SFX/RPG Fight/damage sound 2.mp3"
+define sound_machine_gun = "audio/SFX/RPG Fight/machine gun.mp3"
+define sound_whip = "audio/SFX/RPG Fight/whip.mp3"
 
 # Image Effects
 define hover_effect = im.Flip("click temp.png", vertical=True)

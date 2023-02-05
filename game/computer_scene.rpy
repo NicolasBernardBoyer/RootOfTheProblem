@@ -8,7 +8,7 @@ define redacted_report_read = False
 
 label computer_screen1:
 
-    play music music_ambience2 fadeout 2
+    play music music_computer fadeout 2
     scene computer 1
     show screen computer1
     call screen logout_hack_screen
