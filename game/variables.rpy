@@ -26,6 +26,7 @@ define tint_effect = im.MatrixColor(
 )
 
 # Images
+define icon_close = "exit button.png"
 define icon_folder = "computer files.png"
 define icon_checker = "file pic.png"
 define icon_mug = "mug pic.png"

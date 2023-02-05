@@ -4,16 +4,42 @@ label computer_screen1:
 
     play music music_ambience2 fadeout 2
     scene computer 1
-    call screen computer1
+    show screen computer1
+    call screen logout_hack_screen
 
     return
 
+
+
+label closing_screen:
+    "You can't logout yet! {p=1.5}{nw}"
+    call screen logout_hack_screen
+
+
+# Python
+init python:
+    def logout():
+        renpy.say("ss", "You can't logout yet!")
+
 # Screens
 # First Computer Screen
+screen logout_hack_screen:
+    imagebutton: # (!) Logout Button
+        xanchor 0.5
+        yanchor 0.5
+        xpos 0.695
+        ypos 0.90
+        idle im.FactorScale(icon_close, 1.05)
+        hover im.FactorScale(icon_close, 1.15)
+        action [Play(file=renpy.random.choice(sound_clicks),channel="sound"), Jump("closing_screen")] #(!)
+        mouse "computer"
+
+
 screen computer1:
     $ factor_scale = 1.1
 
-    imagebutton:
+
+    imagebutton: # Background
         xanchor 0.5
         yanchor 0.5
         xalign 0.5
@@ -21,8 +47,6 @@ screen computer1:
         idle "computer_screen1.png"
         action Play(file=renpy.random.choice(sound_clicks), channel="sound")
         mouse "computer"
-
-
 
     imagebutton: # Folder
         xanchor 0.5
