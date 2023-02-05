@@ -8,12 +8,24 @@ init python:
         elif event == "slow_done" or event == "end":
             renpy.music.stop(channel="sound")
 
+    def shadow_talking(event, **kwargs):
+        if event == "show":
+            renpy.music.play("audio/SFX/Voices/ShadowEdge12 Voice.mp3", channel="sound")
+        elif event == "slow_done" or event == "end":
+            renpy.music.stop(channel="sound")
+
+    def nor_talking(event, **kwargs):
+        if event == "show":
+            renpy.music.play("audio/SFX/Voices/Nor Voice.mp3", channel="sound")
+        elif event == "slow_done" or event == "end":
+            renpy.music.stop(channel="sound")
+
 
 # Characters
 define mc = Character("[mc_name]")
 define v = Character("Vina", callback=vina_talking, color="#4b65ad")
-define n = Character("Nor", color="#9d471f")
-define se = Character("ShadowEdge12", color="#736568")
+define n = Character("Nor", callback=nor_talking, color="#9d471f")
+define se = Character("ShadowEdge12", callback=shadow_talking, color="#736568")
 define s = Character("Superbug", color="#2e8838")
 define unknown = Character("???", callback=vina_talking, color="#5195c0")
 
