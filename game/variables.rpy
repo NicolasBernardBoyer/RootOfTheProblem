@@ -1,6 +1,17 @@
+# Sound Effects for Characters
+init python:
+    preferences.text_cps = 40
+
+    def vina_talking(event, **kwargs):
+        if event == "show":
+            renpy.music.play("audio/SFX/Voices/Vina Voice.mp3", channel="sound")
+        elif event == "slow_done" or event == "end":
+            renpy.music.stop(channel="sound")
+
+
 # Characters
 define mc = Character("[mc_name]")
-define v = Character("Vina", color="#4b65ad")
+define v = Character("Vina", callback=vina_talking, color="#4b65ad")
 define n = Character("Nor", color="#9d471f")
 define se = Character("ShadowEdge12", color="#736568")
 define s = Character("Superbug", color="#2e8838")
