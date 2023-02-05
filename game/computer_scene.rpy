@@ -78,7 +78,7 @@ label closing_screen:
         "You can't logout yet! {p=1.5}{nw}"
         call screen logout_hack_screen
     else:
-        jump cave
+        jump back_home
     
     return
 
