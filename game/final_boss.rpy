@@ -10,31 +10,79 @@ style button_style is text:
     font pixel_font
 
 
+
 #  Labels
+# template: "{font=[pixel_font]}{/font}"
 label final_boss:
     scene fight bg
-    play music music_final_boss
+    play music music_final_boss fadeout 1
 
 
     show superbug idle
+    show mothertree idle
+
+    "{font=[pixel_font]}The Mother Tree blocks your path!{/font}"
+    "{font=[pixel_font]}The Mother Tree lashes out with roots!{/font}"
+    
     show mothertree attack
+    show slash
+    pause 0.2
+    hide slash
+    pause 0.25
+    show mothertree idle
 
-    "{font=[pixel_font]}Super Bug wants to Fight!{/font}"
-
-    show superbug shoot
-    show mothertree death
-    "Fight!"
+    "{font=[pixel_font]}It's ineffective against Superbug!”{/font}"
 
     call screen rpg_battle
 
     return
 
-
+define attackLeft = 1
 # (!) Not used
 label attack:
-    "Attack!"
+
+    if attackLeft > 0:
+        $ attackLeft = attackLeft - 1
+        "{font=[pixel_font]}You are too scared of the mother tree!{/font}"
+        call screen rpg_battle
+
+    
+    "{font=[pixel_font]}Superbug unloads a rain of bullets!{/font}"
+    # (!) Attack
+    show superbug shoot
+    show bullets
+    pause 1.0
+    hide bullets
+    show superbug idle
+    show mothertree idle
+
+    "{font=[pixel_font]}The Mother Tree is weak to Superbug's attack!{/font}"
+    show mothertree death
+    
+    "{font=[pixel_font]}The Mother Tree has perished…{/font}"
+    hide mothertree
+
+    "{font=[pixel_font]}You won! You gained 10708 exp and 450 Gold.{/font}"
+    
     call screen rpg_battle
     return
+
+label talk_mothertree:
+
+    return
+
+label fight_items:
+    "{font=[pixel_font]}You do no have an inventory!{/font}"
+    call screen rpg_battle
+
+    return
+
+label fight_run:
+    s "{font=[pixel_font]}Superbug does not run away!{/font}"
+    call screen rpg_battle
+
+    return
+
 
 # Final Battle
 screen rpg_battle:
@@ -49,7 +97,7 @@ screen rpg_battle:
         text_color '#ffffff'
         action Jump("attack")
 
-    textbutton "Defend" at button_animation:
+    textbutton "Talk" at button_animation:
         xanchor 0.5
         yanchor 0.5
         xpos 0.40
@@ -65,7 +113,7 @@ screen rpg_battle:
         ypos 0.80
         text_font pixel_font
         text_color '#ffffff'
-        action Jump("attack")
+        action Jump("fight_items")
 
     textbutton "Run!" at button_animation:
         xanchor 0.5
@@ -74,7 +122,7 @@ screen rpg_battle:
         ypos 0.80
         text_font pixel_font
         text_color '#ffffff'
-        action Jump("attack")
+        action Jump("fight_run")
 
 
 # Animations
@@ -103,7 +151,18 @@ image superbug shoot:
     pause 0.1
     im.FactorScale("bug shoot/bug shoot2.png", 1)
     pause 0.1
-    repeat
+    repeat 5
+
+
+image slash:
+    xanchor 0.5
+    yanchor 0.5
+    xpos superbug_x - 0.01
+    ypos superbug_y + 0.05
+    im.FactorScale("slash/slash1.png", 1)
+    pause 0.1
+    im.FactorScale("slash/slash2.png", 1)
+    pause 0.1
 
 
 #Mother tree
@@ -129,7 +188,6 @@ image mothertree attack:
     pause 0.06
     im.FactorScale("mother tree attack/mothertree attack7.png", 1)
     pause 0.06
-    repeat
 
 image mothertree death:
     xanchor 0.5
@@ -154,7 +212,6 @@ image mothertree death:
     pause 0.1
     im.FactorScale("mother tree death/mothertree death9.png", 1)
     pause 0.1
-    repeat
 
 image mothertree idle:
     xanchor 0.5
@@ -168,7 +225,7 @@ image mothertree idle:
     repeat
 
 
-# Slash and Bullets
+# Bullets
 image bullets:
     xanchor 0.5
     yanchor 0.5
@@ -178,18 +235,7 @@ image bullets:
     pause 0.1
     im.FactorScale("bullets/bullets2.png", 1)
     pause 0.1
-    repeat
-
-image slash:
-    xanchor 0.5
-    yanchor 0.5
-    xpos 0.75
-    ypos 0.4
-    im.FactorScale("slash/slash1.png", 1)
-    pause 0.1
-    im.FactorScale("slash/slash2.png", 1)
-    pause 0.1
-    repeat
+    repeat 5
     
 
 
