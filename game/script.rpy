@@ -2,23 +2,21 @@
 
 # Characters
 define mc = DynamicCharacter("[mc_name]")
-define v = Character("Vina", color="#5195c0")
+define v = Character("Vina", color="#4b65ad")
 define n = Character("Nor", color="#9d471f")
-define s = Character("ShadowEdge12", color="#6d176d")
+define s = Character("ShadowEdge12", color="#736568")
 define s = Character("Superbug", color="#2e8838")
 define unknown = Character("???", color="#5195c0")
 
 # music
-define music_final_boss = "audio/music/FINAL BOSS THEME.mp3"
+define music_ambience = "audio/music/AMBIENCE 1.mp3"
 define music_character_creation = "audio/music/CHARACTER CREATION THEME.mp3"
+define music_final_boss = "audio/music/FINAL BOSS THEME.mp3"
 
 define sound_click_slow = "audio/SFX/Button Slow.mp3"
 define sound_click_normal = "audio/SFX/Button Normal.mp3"
 define sound_click_fast = "audio/SFX/Button Fast.mp3"
 define sound_clicks = [sound_click_slow, sound_click_normal, sound_click_fast]
-
-#Images
-define mouse_cursor = "computer trash.png"
 
 # Image Effects
 define hover_effect = im.Flip("click temp.png", vertical=True)
@@ -44,6 +42,13 @@ define app_folder = "file explorer.png"
 define app_paint = "mspaint.png"
 define app_text = "txt page.png"
 define app_web = "webpage.png"
+
+# Transform
+transform left_to_right:
+    xalign 0.0
+    linear 2.0 xalign 1.0
+    repeat 
+
 
 # Python Code
 init:
@@ -94,14 +99,14 @@ screen computer1:
         action [Play(file=renpy.random.choice(sound_clicks),channel="sound"), ToggleScreen("application_paint")] #(!)
         mouse "computer"
 
-    imagebutton: #Paint
+    imagebutton: #Solitaire
         xanchor 0.5
         yanchor 0.5
         xpos 0.65
         ypos 0.56
         idle icon_solitaire
         hover im.FactorScale(icon_solitaire, factor_scale)
-        action [Play(file=renpy.random.choice(sound_clicks),channel="sound")] #(!)
+        action [Play(file=renpy.random.choice(sound_clicks),channel="sound"), Jump("final_boss")] #(!)
         mouse "computer"
 
     imagebutton: #Web
@@ -194,6 +199,29 @@ screen screen_mug:
         mouse "computer"
 
 
+# Final Battle
+screen rpg_battle:
+    imagebutton: # Button 1
+        xanchor 0.5
+        yanchor 0.5
+        xpos 0.30
+        ypos 0.80
+        idle "temp button.png"
+
+    imagebutton: # Button 2
+        xanchor 0.5
+        yanchor 0.5
+        xpos 0.50
+        ypos 0.80
+        idle "temp button.png"
+
+    imagebutton: # Button 3
+        xanchor 0.5
+        yanchor 0.5
+        xpos 0.70
+        ypos 0.80
+        idle "temp button.png"
+        hover 
 
 
 # __ _             _   
@@ -213,16 +241,20 @@ label intro:
     unknown "Follow the roots and come find me."
 
     # Scene Infirmary
+    play music music_ambience fadeout 1
     show vina smile at right
     v "Ah, you're awake"
     v "Tell me you haven't been here all night, you're going to get a crick in your neck."
     v "I bet you haven't eaten either."
 
     # (!) Vina Sad Face
+    show edge surprised at left
     v "I know you're worried about Nor, but you have to keep taking care of yourself."
+    show edge_smug at center
     v "We have to stay strong and keep going until she wakes up."
 
     # (!) Vina Small smile
+    hide edge
     v "Or else, when she wakes up, the first thing she'll see is your eyebags and the first thing she'll hear is your growing stomach."
     v "We don't want that now, do we?"
 
@@ -293,25 +325,13 @@ label computer_screen1:
 
 # Final Boss
 label final_boss:
+
     play music music_final_boss
-    "Final Boss Time (!)"
-    return
 
+    show edge surprised at right
+    show vina smile at left
+    "Super Bug wants to Fight!"
 
-# Deprecated. Use as reference
-label point_and_click_playground:
+    call screen rpg_battle
 
-    scene bg temp
-    call screen clickable_items
-
-    return
-
-
-
-# Deprecated. Use as reference
-label point_and_click_playground_end:
-    
-    mc "Next Step"
-
-    jump start
     return
