@@ -11,9 +11,13 @@ label cave:
     hide screen screen_mug
     hide screen screen_virus
 
-
     play music music_ambience2 fadeout 1
+    scene black
+
+    "I left Vina and Edge to their banter and left for the core."
+
     scene cave
+
     mc "Hello, calamity. It's just you and me. I know you can understand me."
     mc "However, I can't understand you. Do you know what we could do to communicate better?"
     "Plant" "{i}Makes weird noises{/i}"
