@@ -1,9 +1,15 @@
 # Final Boss
 # Variables
+
+# (!) Remove
 define image_attack_button = "temp button.png"
 define image_defend_button = "temp button.png"
 define image_items_button = "temp button.png"
 define image_run_button = "temp button.png"
+
+
+# Font for fight. Use Style instead...
+define pixel_font = "fonts/PressStart2P-Regular.ttf"
 
 
 
@@ -15,9 +21,7 @@ label final_boss:
 
     show superbug idle
 
-    # (!)
-    $ font = "fonts/PressStart2P-Regular.ttf"
-    "Super Bug wants to Fight!"
+    "{font=[pixel_font]}Super Bug wants to Fight!{/font}"
 
     show superbug shoot
     "Fight!"
