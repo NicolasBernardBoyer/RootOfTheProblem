@@ -75,7 +75,7 @@ screen computer1:
         ypos 0.56
         idle icon_solitaire
         hover im.FactorScale(icon_solitaire, factor_scale)
-        action [Play(file=renpy.random.choice(sound_clicks),channel="sound"), Jump("final_boss")] #(!)
+        action [Play(file=renpy.random.choice(sound_clicks),channel="sound"), Jump("computer_final_scene")] #(!)
         mouse "computer"
 
     imagebutton: #Web

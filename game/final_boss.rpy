@@ -12,8 +12,6 @@ style button_style is text:
 
 #  Labels
 label final_boss:
-
-    hide screen computer1
     scene fight bg
     play music music_final_boss
 
