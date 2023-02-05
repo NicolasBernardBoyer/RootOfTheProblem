@@ -1,5 +1,9 @@
 # Label
 # Computer Screen 1
+define suspicious_email_read = False
+define bunny_email = False
+
+
 label computer_screen1:
 
     play music music_ambience2 fadeout 2
@@ -10,6 +14,33 @@ label computer_screen1:
     return
 
 
+label bunny_email:
+    $ bunny_email = True
+
+
+    "Welcome to the number one online newsletter, The Read! As promised, here are three fun facts about your favorite fluffy creatures.{p=1.5}{nw}"
+    "Number one: Everyone knows that carrots are the bunny's food of choice… or is it? As it turns out, this happens to be a myth! As root vegetables like carrots have high amounts of sugar, they prove to be quite bad for the health of the rabbit. Instead, they tend to prefer hay and other kinds of veggies!{p=1.5}{nw}"
+    "Number two: Bunnies may seem cute and cuddly, but in reality, they have an unexpected dark side. Did you know that they love to drink the blood of their enemies? This can be explained scientifically through consuming the blood of other bunnies can lengthen their lifespan.{p=1.5}{nw}"
+    "Number three: Despite their small appearance, bunnies can never get enough of a good feast. They are known to have near endless stomachs, to the point that if they are not willing to eat, you should take them to a veterinarian center as soon as possible.{p=1.5}{nw}"
+    "Thank you so much for reading this month's report! See you next month for a story on The Couchening..{p=1.5}{nw}"
+
+    hide screen screen_open_email
+    call screen logout_hack_screen
+    return
+
+
+
+# "{p=1.5}{nw}"
+label suspicious_email:
+    $ suspicious_email_read = True
+    "Good evening. I'm sure at this point you all noticed the worrying behavior of Mx Jekan. Their fraternizing with the asset could jeopardize our operations. {p=1.5}{nw}"
+    "This needs to be taken care of. I want them gone.{p=1.5}{nw}"
+    "Signed, Management{p=1.5}{nw}"
+
+
+    hide screen screen_close_email
+    call screen logout_hack_screen
+    return
 
 label closing_screen:
     "You can't logout yet! {p=1.5}{nw}"
@@ -164,8 +195,51 @@ screen application_trash:
         hover im.FactorScale(icon_virus, 1)
         action [Play(file=renpy.random.choice(sound_clicks),channel="sound"), ToggleScreen("screen_virus")] #(!)
         mouse "computer"
+
+    imagebutton: #Email Close
+        xanchor 0.5
+        yanchor 0.5
+        xpos 0.52
+        ypos 0.53
+        idle im.FactorScale(icon_close_mail, 0.60)
+        hover im.FactorScale(icon_close_mail, 0.9)
+        action [Play(file=renpy.random.choice(sound_clicks),channel="sound"), Show("screen_close_email")] #(!)
+        mouse "computer"
+
+    imagebutton: #Email Open
+        xanchor 0.5
+        yanchor 0.5
+        xpos 0.58
+        ypos 0.53
+        idle im.FactorScale(icon_open_mail, 0.60)
+        hover im.FactorScale(icon_open_mail, 0.9)
+        action [Play(file=renpy.random.choice(sound_clicks),channel="sound"), Show("screen_open_email")] #(!)
+        mouse "computer"
     
     add im.FactorScale(icon_text, 0.70) xpos 0.63 ypos 0.41 xanchor 0.5 yanchor 0.5
+
+
+# Email 1
+screen screen_close_email:
+    imagebutton:
+        xanchor 0.5
+        yanchor 0.5
+        xpos 0.48
+        ypos 0.48
+        idle app_report_redacted
+        action Jump("suspicious_email") #(!)
+        mouse "computer"
+
+# Bunny Email
+screen screen_open_email:
+    imagebutton:
+        xanchor 0.5
+        yanchor 0.5
+        xpos 0.48
+        ypos 0.48
+        idle app_report
+        action Jump("bunny_email") #(!)
+        mouse "computer"
 
 
 # Mug Screen

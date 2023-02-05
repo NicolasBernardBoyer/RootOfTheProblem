@@ -63,11 +63,17 @@ define icon_trash = "computer trash.png"
 define icon_virus = "virus icon.png"
 define icon_webpage = "webpage icon.png"
 
+define icon_close_mail = "mail sus.png"
+define icon_open_mail = "open mail.png"
+
 define app_folder = "file explorer.png"
 define app_paint = "mspaint.png"
 define app_real = "error for real.PNG"
 define app_text = "txt page.png"
 define app_web = "webpage.png"
+
+define app_report = "report.png"
+define app_report_redacted = "report redacted.png"
 
 transform edge_position:
     xalign 0.25
