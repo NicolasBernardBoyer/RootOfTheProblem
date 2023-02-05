@@ -15,7 +15,7 @@ define v = Character("Vina", callback=vina_talking, color="#4b65ad")
 define n = Character("Nor", color="#9d471f")
 define se = Character("ShadowEdge12", color="#736568")
 define s = Character("Superbug", color="#2e8838")
-define unknown = Character("???", color="#5195c0")
+define unknown = Character("???", callback=vina_talking, color="#5195c0")
 
 # music
 define music_ambience = "audio/music/AMBIENCE 1.mp3"
