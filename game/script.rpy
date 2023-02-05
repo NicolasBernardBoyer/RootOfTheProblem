@@ -47,7 +47,15 @@ define app_web = "webpage.png"
 transform left_to_right:
     xalign 0.0
     linear 2.0 xalign 1.0
-    repeat 
+    repeat
+
+transform button_animation():
+    linear renpy.random.randint(1, 3) / 10.0 rotate renpy.random.randint(2, 10)
+    pause 0.2
+    linear renpy.random.randint(1, 3) / 10.0 rotate renpy.random.randint(2, 10) * -1
+    pause 0.2
+    repeat
+
 
 
 # Python Code
@@ -206,21 +214,21 @@ screen rpg_battle:
         yanchor 0.5
         xpos 0.30
         ypos 0.80
-        idle "temp button.png"
+        idle "temp button.png" at button_animation()
 
     imagebutton: # Button 2
         xanchor 0.5
         yanchor 0.5
         xpos 0.50
         ypos 0.80
-        idle "temp button.png"
+        idle "temp button.png" at button_animation()
 
     imagebutton: # Button 3
         xanchor 0.5
         yanchor 0.5
         xpos 0.70
         ypos 0.80
-        idle "temp button.png"
+        idle "temp button.png" at button_animation()
         hover 
 
 
@@ -250,7 +258,7 @@ label intro:
     # (!) Vina Sad Face
     show edge surprised at left
     v "I know you're worried about Nor, but you have to keep taking care of yourself."
-    show edge_smug at center
+    show edge smug
     v "We have to stay strong and keep going until she wakes up."
 
     # (!) Vina Small smile
