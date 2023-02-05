@@ -40,16 +40,8 @@ label final_boss:
 
     return
 
-define attackLeft = 1
 
-label attack:
-
-    if attackLeft > 0:
-        $ attackLeft = attackLeft - 1
-        "{font=[pixel_font]}You are too scared of the mother tree!{/font}"
-        call screen rpg_battle
-
-    
+label attack:    
     "{font=[pixel_font]}Superbug unloads a rain of bullets!{/font}"
     # (!) Attack
     play sound sound_machine_gun
@@ -69,7 +61,7 @@ label attack:
 
     "{font=[pixel_font]}You won! You gained 10708 exp and 450 Gold.{/font}"
     
-    call screen rpg_battle
+    jump good_ending_attack
     return
 
 # Talk
