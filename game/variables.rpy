@@ -8,6 +8,7 @@ define unknown = Character("???", color="#5195c0")
 
 # music
 define music_ambience = "audio/music/AMBIENCE 1.mp3"
+define music_ambience2 = "audio/music/AMBIENCE 2.mp3"
 define music_character_creation = "audio/music/CHARACTER CREATION THEME.mp3"
 define music_final_boss = "audio/music/FINAL BOSS THEME.mp3"
 

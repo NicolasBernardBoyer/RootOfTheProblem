@@ -1,9 +1,10 @@
 label intro:
+    play music music_ambience fadeout 1 fadein 3
+
     unknown "[mc_name], follow the roots."
     unknown "Follow the roots and come find me."
 
     # Scene Infirmary
-    play music music_ambience fadeout 1
     scene hq
     show vina smile at right
     v "You're finally awake"

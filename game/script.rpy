@@ -54,6 +54,8 @@ label main_room:
 
 # Computer Screen 1
 label computer_screen1:
+
+    play music music_ambience2 fadeout 2
     scene computer 1
 
     show computer_screen1:
@@ -73,6 +75,8 @@ label final_boss:
 
     show edge surprised at right
     show vina smile at left
+
+    $ font = "fonts/PressStart2P-Regular.ttf"
     "Super Bug wants to Fight!"
 
     call screen rpg_battle
