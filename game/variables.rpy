@@ -1,8 +1,8 @@
 # Characters
-define mc = DynamicCharacter("[mc_name]")
+define mc = Character("[mc_name]")
 define v = Character("Vina", color="#4b65ad")
 define n = Character("Nor", color="#9d471f")
-define s = Character("ShadowEdge12", color="#736568")
+define se = Character("ShadowEdge12", color="#736568")
 define s = Character("Superbug", color="#2e8838")
 define unknown = Character("???", color="#5195c0")
 
@@ -41,3 +41,20 @@ define app_folder = "file explorer.png"
 define app_paint = "mspaint.png"
 define app_text = "txt page.png"
 define app_web = "webpage.png"
+
+transform edge_position:
+    xalign 0.25
+    yalign 1.0
+
+# Transform
+transform left_to_right:
+    xalign 0.0
+    linear 2.0 xalign 1.0
+    repeat
+
+transform button_animation():
+    linear renpy.random.randint(1, 3) / 10.0 rotate renpy.random.randint(2, 10)
+    pause 0.2
+    linear renpy.random.randint(1, 3) / 10.0 rotate renpy.random.randint(2, 10) * -1
+    pause 0.2
+    repeat

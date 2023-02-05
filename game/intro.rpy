@@ -34,8 +34,7 @@ label intro_choices:
             jump intro_choice2
 
     hide vina
-    "Continue Here (!)"
-    jump computer_screen1
+    jump main_room
     return
 
 label intro_choice1:
