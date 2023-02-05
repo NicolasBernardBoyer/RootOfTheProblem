@@ -34,6 +34,8 @@ define music_ambience = "audio/music/AMBIENCE 1.mp3"
 define music_ambience2 = "audio/music/AMBIENCE 2.mp3"
 define music_character_creation = "audio/music/CHARACTER CREATION THEME.mp3"
 define music_final_boss = "audio/music/FINAL BOSS THEME.mp3"
+define music_good_ending = "audio/music/PACIFIST ENDING THEME.mp3"
+define music_attack_ending = "audio/music/GOOD ENDING MELODY.mp3"
 
 define sound_click_slow = "audio/SFX/Button Slow.mp3"
 define sound_click_normal = "audio/SFX/Button Normal.mp3"
