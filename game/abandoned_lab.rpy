@@ -4,10 +4,10 @@ label abandoned_lab:
     scene lab
     play music music_ambience fadeout 1
     "We went to a couple of stores and filled our bags as much as possible."
-    "Lastly, we stopped at the old lab like Edge wanted."
+    "After, we stopped at the old lab that Edge was interested in."
 
     # (!) Inside abandoned lab 
-    show edge smug at right
+    show edge neutral at center
     se "This is it, the lab."
     se "Do you think the scientists that worked here are the ones who created the calamity?"
 
@@ -27,17 +27,20 @@ label abandoned_lab_choice1:
     return
 
 label abandoned_lab_choice2:
+    show edge smug
     se "What? You think the plants just appeared outta nowhere? Cmon, don't be such a simpleton, [mc_name]. Someone must have created them."
     jump abandoned_lab_part2
     return
 
 label abandoned_lab_choice3:
-    se "You and Vina sure are lucky to have me, in that case, 'cause I know everything."
+    show edge smug
+    se "You and Vina sure are lucky to have me, 'cause I know everything."
     se "Well, maybe not EVERYTHING, but I know a lot of things. There's no way these plants came outta nowhere. Someone must've been meddling with something."
     jump abandoned_lab_part2
     return
 
 label abandoned_lab_part2:
+    show edge neutral
     se "Anyways, let's go look at the computer."
     jump computer_screen1
     return
