@@ -1,13 +1,13 @@
 label abandoned_lab:
-    # (!) Show Lab
+
     # (!) Nature Music Sounds
+    scene lab
     play music music_ambience fadeout 1
     "We went to a couple of stores and filled our bags as much as possible."
     "Lastly, we stopped at the old lab like Edge wanted."
 
-    # (!) Inside abandoned lab
-    # (!) Abandoned lab 
-    show edge smug
+    # (!) Inside abandoned lab 
+    show edge smug at right
     se "This is it, the lab."
     se "Do you think the scientists that worked here are the ones who created the calamity?"
 

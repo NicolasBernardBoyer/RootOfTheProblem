@@ -83,7 +83,8 @@ screen application_folder:
         xpos 0.42
         ypos 0.51
         idle app_folder
-        action Hide("application_folder") #(!)
+        action Hide("application_folder")
+        mouse "computer"
 
 #Paint Application
 screen application_paint:
@@ -93,7 +94,8 @@ screen application_paint:
         xpos 0.52
         ypos 0.38
         idle app_paint
-        action Hide("application_paint") #(!)
+        action Hide("application_paint")
+        mouse "computer"
 
 
 #Web Application
@@ -104,7 +106,7 @@ screen application_web:
         xpos 0.42
         ypos 0.57
         idle app_web
-        action Hide("application_web") #(!)
+        action Hide("application_web")
         mouse "computer"
 
 
@@ -116,7 +118,8 @@ screen application_trash:
         xpos 0.55
         ypos 0.46
         idle app_folder
-        action Hide("application_trash") #(!)
+        action Hide("application_trash")
+        mouse "computer"
 
     imagebutton: #Mug
         xanchor 0.5

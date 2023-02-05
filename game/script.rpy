@@ -74,18 +74,3 @@ label main_room:
 
     jump abandoned_lab
     return
-
-# Final Boss
-label final_boss:
-
-    play music music_final_boss
-
-    show edge surprised at right
-    show vina smile at left
-
-    $ font = "fonts/PressStart2P-Regular.ttf"
-    "Super Bug wants to Fight!"
-
-    call screen rpg_battle
-
-    return
