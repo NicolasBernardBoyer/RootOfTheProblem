@@ -75,22 +75,6 @@ label main_room:
     jump abandoned_lab
     return
 
-# Computer Screen 1
-label computer_screen1:
-
-    play music music_ambience2 fadeout 2
-    scene computer 1
-
-    show computer_screen1:
-        xanchor 0.5
-        yanchor 0.5
-        xalign 0.5
-        yalign 0.5
-
-
-    call screen computer1 
-    return
-
 # Final Boss
 label final_boss:
 

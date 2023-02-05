@@ -1,7 +1,28 @@
+# Label
+# Computer Screen 1
+label computer_screen1:
+
+    play music music_ambience2 fadeout 2
+    scene computer 1
+    call screen computer1
+
+    return
+
 # Screens
 # First Computer Screen
 screen computer1:
     $ factor_scale = 1.1
+
+    imagebutton:
+        xanchor 0.5
+        yanchor 0.5
+        xalign 0.5
+        yalign 0.5
+        idle "computer_screen1.png"
+        action Play(file=renpy.random.choice(sound_clicks), channel="sound")
+        mouse "computer"
+
+
 
     imagebutton: # Folder
         xanchor 0.5
@@ -106,8 +127,17 @@ screen application_trash:
         hover im.FactorScale(icon_mug, 1)
         action [Play(file=renpy.random.choice(sound_clicks),channel="sound"), ToggleScreen("screen_mug")] #(!)
         mouse "computer"
+
+    imagebutton: #Virus
+        xanchor 0.5
+        yanchor 0.5
+        xpos 0.57
+        ypos 0.41
+        idle im.FactorScale(icon_virus, 0.70)
+        hover im.FactorScale(icon_virus, 1)
+        action [Play(file=renpy.random.choice(sound_clicks),channel="sound"), ToggleScreen("screen_virus")] #(!)
+        mouse "computer"
     
-    add im.FactorScale(icon_virus, 0.70) xpos 0.57 ypos 0.41 xanchor 0.5 yanchor 0.5
     add im.FactorScale(icon_text, 0.70) xpos 0.63 ypos 0.41 xanchor 0.5 yanchor 0.5
 
 
@@ -120,4 +150,15 @@ screen screen_mug:
         ypos 0.48
         idle icon_mug_egg
         action Hide("screen_mug") #(!)
+        mouse "computer"
+
+# Virus Screen
+screen screen_virus:
+    imagebutton: #Virus
+        xanchor 0.5
+        yanchor 0.5
+        xpos 0.48
+        ypos 0.48
+        idle app_real
+        action Hide("screen_virus") #(!)
         mouse "computer"

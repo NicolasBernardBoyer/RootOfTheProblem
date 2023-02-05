@@ -39,6 +39,7 @@ define icon_webpage = "webpage icon.png"
 
 define app_folder = "file explorer.png"
 define app_paint = "mspaint.png"
+define app_real = "error for real.PNG"
 define app_text = "txt page.png"
 define app_web = "webpage.png"
 
@@ -46,7 +47,9 @@ transform edge_position:
     xalign 0.25
     yalign 1.0
 
-# Transform
+
+
+# Transforms
 transform left_to_right:
     xalign 0.0
     linear 2.0 xalign 1.0
