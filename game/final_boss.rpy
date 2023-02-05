@@ -87,9 +87,9 @@ image superbug idle:
     yanchor 0.5
     xpos superbug_x
     ypos superbug_y
-    im.FactorScale("bug idle/bug idle1.png", 3)
+    im.FactorScale("bug idle/bug idle1.png", 1)
     pause 0.5
-    im.FactorScale("bug idle/bug idle2.png", 3)
+    im.FactorScale("bug idle/bug idle2.png", 1)
     pause 0.5
     repeat
 
@@ -99,9 +99,9 @@ image superbug shoot:
     yanchor 0.5
     xpos superbug_x
     ypos superbug_y
-    im.FactorScale("bug shoot/bug shoot1.png", 3)
+    im.FactorScale("bug shoot/bug shoot1.png", 1)
     pause 0.1
-    im.FactorScale("bug shoot/bug shoot2.png", 3)
+    im.FactorScale("bug shoot/bug shoot2.png", 1)
     pause 0.1
     repeat
 
@@ -115,19 +115,19 @@ image mothertree attack:
     yanchor 0.5
     xpos mothertree_x
     ypos mothertree_y
-    im.FactorScale("mother tree attack/mothertree attack1.png", 3)
+    im.FactorScale("mother tree attack/mothertree attack1.png", 1)
     pause 0.06
-    im.FactorScale("mother tree attack/mothertree attack2.png", 3)
+    im.FactorScale("mother tree attack/mothertree attack2.png", 1)
     pause 0.06
-    im.FactorScale("mother tree attack/mothertree attack3.png", 3)
+    im.FactorScale("mother tree attack/mothertree attack3.png", 1)
     pause 0.06
-    im.FactorScale("mother tree attack/mothertree attack4.png", 3)
+    im.FactorScale("mother tree attack/mothertree attack4.png", 1)
     pause 0.06
-    im.FactorScale("mother tree attack/mothertree attack5.png", 3)
+    im.FactorScale("mother tree attack/mothertree attack5.png", 1)
     pause 0.06
-    im.FactorScale("mother tree attack/mothertree attack6.png", 3)
+    im.FactorScale("mother tree attack/mothertree attack6.png", 1)
     pause 0.06
-    im.FactorScale("mother tree attack/mothertree attack7.png", 3)
+    im.FactorScale("mother tree attack/mothertree attack7.png", 1)
     pause 0.06
     repeat
 
@@ -136,23 +136,23 @@ image mothertree death:
     yanchor 0.5
     xpos mothertree_x
     ypos mothertree_y
-    im.FactorScale("mother tree death/mothertree death1.png", 3)
+    im.FactorScale("mother tree death/mothertree death1.png", 1)
     pause 0.1
-    im.FactorScale("mother tree death/mothertree death2.png", 3)
+    im.FactorScale("mother tree death/mothertree death2.png", 1)
     pause 0.1
-    im.FactorScale("mother tree death/mothertree death3.png", 3)
+    im.FactorScale("mother tree death/mothertree death3.png", 1)
     pause 0.1
-    im.FactorScale("mother tree death/mothertree death4.png", 3)
+    im.FactorScale("mother tree death/mothertree death4.png", 1)
     pause 0.1
-    im.FactorScale("mother tree death/mothertree death5.png", 3)
+    im.FactorScale("mother tree death/mothertree death5.png", 1)
     pause 0.1
-    im.FactorScale("mother tree death/mothertree death6.png", 3)
+    im.FactorScale("mother tree death/mothertree death6.png", 1)
     pause 0.1
-    im.FactorScale("mother tree death/mothertree death7.png", 3)
+    im.FactorScale("mother tree death/mothertree death7.png", 1)
     pause 0.1
-    im.FactorScale("mother tree death/mothertree death8.png", 3)
+    im.FactorScale("mother tree death/mothertree death8.png", 1)
     pause 0.1
-    im.FactorScale("mother tree death/mothertree death9.png", 3)
+    im.FactorScale("mother tree death/mothertree death9.png", 1)
     pause 0.1
     repeat
 
@@ -161,9 +161,9 @@ image mothertree idle:
     yanchor 0.5
     xpos mothertree_x
     ypos mothertree_y
-    im.FactorScale("mother tree idle/mothertree idle1.png", 3)
+    im.FactorScale("mother tree idle/mothertree idle1.png", 1)
     pause 0.5
-    im.FactorScale("mother tree idle/mothertree idle2.png", 3)
+    im.FactorScale("mother tree idle/mothertree idle2.png", 1)
     pause 0.5
     repeat
 
@@ -174,9 +174,9 @@ image bullets:
     yanchor 0.5
     xpos 0.75
     ypos 0.4
-    im.FactorScale("bullets/bullets1.png", 3)
+    im.FactorScale("bullets/bullets1.png", 1)
     pause 0.1
-    im.FactorScale("bullets/bullets2.png", 3)
+    im.FactorScale("bullets/bullets2.png", 1)
     pause 0.1
     repeat
 
@@ -185,9 +185,9 @@ image slash:
     yanchor 0.5
     xpos 0.75
     ypos 0.4
-    im.FactorScale("slash/slash1.png", 3)
+    im.FactorScale("slash/slash1.png", 1)
     pause 0.1
-    im.FactorScale("slash/slash2.png", 3)
+    im.FactorScale("slash/slash2.png", 1)
     pause 0.1
     repeat
     
