@@ -75,7 +75,7 @@ label talk_mothertree:
     return
 
 label talk_mothertree_choice1:
-    s "GO AWAY HUMAN GO AWAY HUMAN"
+    mt "GO AWAY HUMAN GO AWAY HUMAN"
     menu:
         "I won't go away! You need to stop attacking us!":
             jump talk_mothertree_choice11
@@ -85,7 +85,7 @@ label talk_mothertree_choice1:
     return
 
 label talk_mothertree_choice11:
-    s "ATTACKING ME"
+    mt "ATTACKING ME"
 
     menu:
         "We're not attacking you!":
@@ -96,14 +96,14 @@ label talk_mothertree_choice11:
     return
 
 label talk_mothertree_choice12:
-    s "HUMANS MEAN PAIN PAIN PAIN"
+    mt "HUMANS MEAN PAIN PAIN PAIN"
     mc "Who hurt you?"
 
-    s "HUMANS IN LONG WHITE ROBES"
+    mt "HUMANS IN LONG WHITE ROBES"
 
     menu:
         "Not all humans are like that, I swear!":
-            s "I DON'T BELIEVE YOU"
+            mt "I DON'T BELIEVE YOU"
             jump bad_ending
         "They wanted to control you, but don't you think it's unfair to punish all of humanity for their mistake?":
             jump talk_mothertree_choice121
@@ -111,7 +111,7 @@ label talk_mothertree_choice12:
     return
 
 label talk_mothertree_choice121:
-    s "HUMANS ARE BAD"
+    mt "HUMANS ARE BAD"
     menu:
         "If you give me a chance, I'll show you the good in humanity.":
             jump good_ending
@@ -121,11 +121,11 @@ label talk_mothertree_choice121:
     return
 
 label talk_mothertree_choice2:
-    s "DOCTORR BETRAYED ME DOCTOR ALLOWED HUMANS TO HURT"
+    mt "DOCTORR BETRAYED ME DOCTOR ALLOWED HUMANS TO HURT"
 
     # (!) Only if Email
     mc "They never wanted to leave you. The other humans hurt them too."
-    s "DOCTOR WAS HURT HUMANS HURT DOCTOR"
+    mt "DOCTOR WAS HURT HUMANS HURT DOCTOR"
 
     menu:
         "I'm sorry for your loss.":
@@ -136,15 +136,15 @@ label talk_mothertree_choice2:
     return
 
 label talk_mothertree_choice21:
-    s "HUMANS KILLED THE ONLY NICE ONE HUMANS NEED TO DIE"
+    mt "HUMANS KILLED THE ONLY NICE ONE HUMANS NEED TO DIE"
 
     jump bad_ending
     return
 
 label talk_mothertree_choice22:
-    s "I WANT TO KNOW WHAT HAPPENED TO DOCTOR"
+    mt "I WANT TO KNOW WHAT HAPPENED TO DOCTOR"
     mc "They wanted to introduce your kind to mine, so that we could live together. Some powerful people wanted to exploit you instead, so they made Dr Jekan disappear so they wouldn't be able to protect you."
-    s "THEY THOUGHT I COULD LIVE WITH HUMANS"
+    mt "THEY THOUGHT I COULD LIVE WITH HUMANS"
     mc "They did and i think so too"
 
     jump good_ending

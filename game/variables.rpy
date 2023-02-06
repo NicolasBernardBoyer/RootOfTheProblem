@@ -26,7 +26,9 @@ define mc = Character("[mc_name]")
 define v = Character("Vina", callback=vina_talking, color="#4b65ad")
 define n = Character("Nor", callback=nor_talking, color="#9d471f")
 define se = Character("ShadowEdge12", callback=shadow_talking, color="#736568")
-define s = Character("Superbug", color="#2e8838")
+define s = Character("Superbug", color="#a19f13")
+define mt = Character("Mother Tree", color="#a3ccd8")
+
 define unknown = Character("???", callback=vina_talking, color="#5195c0")
 
 # music
