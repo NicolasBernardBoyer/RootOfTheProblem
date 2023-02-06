@@ -1,7 +1,8 @@
 label bad_ending:
 
     scene black
-    "The Mother Tree killed you"
+    "If I say this, I'll anger the Mother Tree."
+    "I need to rethink how I want to negotiate..."
     # (!) Final Screen
 
     jump final_boss
@@ -14,7 +15,7 @@ label good_ending_attack:
 
     "With the Mother Tree dead, the roots stopped growing."
     "They stayed where they were, blocking the way and impeding the reconstruction of anything."
-    "And while the Mother Tree was defeated, there is no guarantee that it was the only plant controlling the roots."
+    "And whilst the Mother Tree was defeated, there is no guarantee that it was the only plant controlling the roots."
     "We are not free yet."
 
     jump credits

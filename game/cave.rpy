@@ -23,6 +23,9 @@ label cave:
     "Plant" "{i}Makes weird noises{/i}"
 
     mc "Perfect. Just don't stab me while I let my guard down."
+    "I plug the usb stick that Edge gave me into the computer."
+    "The computer bluescreens and displays a strange app named Superbug.exe."
+    "The computer warns me that this app may harm it."
 
     jump computer_final_scene
     return
